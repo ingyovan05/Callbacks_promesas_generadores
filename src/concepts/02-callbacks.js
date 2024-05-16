@@ -3,14 +3,23 @@ import { heroes } from "./data/heroes"
 
 export const callbacksComponent = (element) => {
     const id = '5d86371f25a058e5b1c8a65e'
+    const id2= '5d86371f97c29d020f1e1f6d'
+
     findHero(id,(error, hero)=>{
         //element.innerHTML=hero?.name || 'No encontrado'
         if(error) {
             element.innerHTML=error    
                     return
         }
-        element.innerHTML=hero.name
-    })
+        findHero(id2,(error, hero2)=>{
+            //element.innerHTML=hero?.name || 'No encontrado'
+            if(error) {
+                element.innerHTML=error    
+                       return
+                    }               
+        element.innerHTML=`${hero.name} / ${hero2.name} `
+     })   
+    })    
 }
 /**
  * 
